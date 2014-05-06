@@ -1,0 +1,158 @@
+﻿@model Repositories.DTO.PostInfo
+
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<div class="content-wrapper column-news">
+    @if (Model.Files.Count(x => x.Category == "Image") > 0)
+    {
+        <div class="slider-wrapper">
+            <div class="slider">
+                <ul>
+                    @foreach (var item in Model.Files.Where(x => x.Category == "Image"))
+                    {
+                        <li>
+                            <img src="@item.Path" width="800"/>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+    <div class="body-news full-news">
+        <span class="hoch-line clearfix">
+            <span class="date-part float-left">@Model.DateCreation</span>
+        </span>
+        <div class="main">
+            <div class="main-title-wrapper">
+                <div class="main-title clearfix">
+                    <div class="value-title float-left">
+                        <h2>@Model.Title</h2>
+                    </div>
+                    <div class="main-rating float-right">
+                        @if (User.Identity.IsAuthenticated && (string)Session["Role"] != "Anon")
+                        {
+                            <span class="change-rating">
+                                <input type="hidden" class="post-id" value="@Model.PostId"/>
+                                <span class="up-rating">
+                                    <a class="btn">
+                                        <img src="~/Images/Rating/rating_y_up.png" /></a></span>
+                                <label class="label-rating">@Model.Rating</label>
+                                <span class="down-rating">
+                                    <a class="btn">
+                                        <img src="~/Images/Rating/rating_t_down.png" /></a></span>
+                            </span>
+                        }
+                        else
+                        {
+                            <label class="label-rating">@Model.Rating</label>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="full-main-text">
+                @Model.Message
+            </div>
+        </div>
+        <div class="down-line clearfix">
+            <div class="login-autor float-left">Автор поста: &nbsp;<a class="extend-info-user" href="javascript:void(0)">@Model.UserLogin</a></div>
+            <div class="ratng-autor float-right">Рейтинг пользователя: &nbsp;@Model.UserRating</div>
+        </div>
+    </div>
+
+    <div class="sozial-network" style="display: none">
+        <div class="title">
+            <b><i>Поделиться</i></b>
+        </div>
+        <div class="icons">
+            <a href="#" class="sb light-blue orange twitter">Twitter</a>
+            <a href="#" class="sb blue facebook">Facebook</a>
+            <a href="#" class="sb orange rss">RSS</a>
+            <a href="#" class="sb orange linkedin">RSS</a>
+        </div>
+    </div>
+
+    <div class="komments-block">
+        <div class="komments-block-body">
+
+            @if (Model.Kommentars.Count > 0)
+            {
+                foreach (var item in Model.Kommentars.OrderByDescending(x=>x.Rating))
+                {
+                <div class="komment-wrapper">
+                    <div class="hoch-line-news clearfix">
+                        <div class="date-part float-left">
+                            @item.DateCreation
+                        </div>
+                        <div class="rating-part float-right">
+                            @if (User.Identity.IsAuthenticated && (string)Session["Role"] != "Anon")
+                            {
+                                <span class="change-rating">
+                                    <input type="hidden" class="kommentar-id" value="@item.KommentId"/>
+                                    <span class="up-komment-rating">
+                                        <a class="btn">
+                                            <img src="~/Images/Rating/rating_y_up.png" /></a></span>
+                                    <label class="label-rating">@item.Rating</label>
+                                    <span class="down-komment-rating">
+                                        <a class="btn">
+                                            <img src="~/Images/Rating/rating_t_down.png" /></a></span>
+                                </span>
+                            }
+                            else
+                            {
+                                <label class="label-rating">@item.Rating</label>
+                            }
+                        </div>
+                    </div>
+                    <div class="komment-text-wrapper clearfix pos-rel">
+                        <input type="hidden" class="kommentar-id" value="@item.KommentId"/>
+                        <div class="komment-text">@item.Message</div>
+                        <div class="change-and-delete float-right">
+                            <div class="change-text-komment">
+                                <a href="javascript:void(0)"><img src="~/Images/OptionPost/edit.png"/></a>
+                            </div>
+                            <div class="delete-komment">
+                                <a href="javascript:void(0)"><img src="~/Images/OptionPost/delete.png"/></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down-line-news clearfix">
+                        <div class="komment-author float-left">
+                            Автор:&nbsp;<a class="extend-info-user" href="javascript:void(0)">@item.UserLogin</a>
+                        </div>
+                        @if (User.Identity.IsAuthenticated && (string)Session["Role"] != "Anon")
+                        {
+                            <div class="to-answer float-right">
+                                <a href="javascript:void(0)">Ответить</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                }
+            }
+            
+            <input type="hidden" class="id-komment-to-answer" value="" />
+        </div>
+        @if (User.Identity.IsAuthenticated && (string)Session["Role"] != "Anon")
+        {
+            <div class="komments-block-header">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <textarea class="new-text-komments"></textarea>
+                    </div>
+                    <div class="float-right">
+                        <input type="button" class="input-to-add-komment btn btn-primary" value="Комментировать" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="~/Scripts/MainPage/ActionInNewsPage.js"></script>
+<script type="text/javascript" src="~/Scripts/MainPage/ActionInMainPage.js"></script>

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>Будь в фокусе</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/social-buttons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Content/tags.css" type="text/css">
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper pos-rel">
+            <div class="float-left">
+                <div class="logo">
+                    <p class="site-title">
+                        <a href="/Home/Index">
+                            <img src="../../Images/logoFocus.png" /></a>
+                    </p>
+                </div>
+            </div>
+            <div class="float-left search-header">
+                <input id="searcher" type="text" placeholder="Поиск..." />
+                <a id="loop-searcher" class="btn btn-primary" href="javascript:void(0)">
+                    <img src="~/Images/search.png" /></a>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginOptional")
+                </section>
+            </div>
+            <div class="unwatched-messages pos-abs">
+                <a href="javascript:void(0)">
+                    <img src="~/Images/OptionPost/message.png" alt="" />
+                </a>
+                <div class="count-messages pos-abs">101</div>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderBody()
+    </div>
+    <div id="up">
+        <p class="pPageScroll btn btn-primary">Вверх</p>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year — Царегородцев Вадим</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/MainPage/tags.js"></script>
+    <script src="~/Scripts/MainPage/WrapTags.js"></script>
+    <script src="~/Scripts/MainPage/UserNavigations.js"></script>
+</body>
+</html>
+
+
+@* ---------------------------------------------- popups ------------------------------------------------------------*@
+
+<div id="popup-activate" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Активация аккаунта</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-email" class="form-control activate-field" type="email" placeholder="Email" name="Email" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-login" class="form-control activate-field" placeholder="Login" name="Login" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-password" class="form-control activate-field" placeholder="Password" name="Password" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="popup-activate-go" class="btn btn-primary-custom">Активировать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-unfo-user" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Информация о пользователе</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="infouserkey">Имя пользователя: &nbsp;</label><label class="username-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Пол пользователя: &nbsp;</label><label class="usersex-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Рейтинг пользователя: &nbsp;</label><label class="userrating-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Время на сайте: &nbsp;</label><label class="usertimeonsite-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Количество постов: &nbsp;</label><label class="userposts-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Количество комментариев: &nbsp;</label><label class="userkomments-userforuser infouservalue"></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <input id="iduser-for-add-to-blacklist" type="hidden" value="" />
+                    <button type="button" id="add-to-blacklist" class="btn btn-primary-custom">Добавить в черный список</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-dialogs" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Мои диалоги</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group dialogs">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-form" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-rubric" style="display: none">
+    <div class="form-group">
+        <div class="all-rubrics">
+            
+        </div>
+        <div class="form-for-new-rubric clearfix">
+            <div class="title-info">Добавление новой рубрики</div>
+            <div class="float-left">
+                <div class="input-to-rubric">
+                    <input type="text" id="title-rubric" placeholder="Укажите название рубрики" />
+                </div>
+            </div>
+            <div class="float-right">
+                <button class="add-rubric-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+            <div class="description-rubric">
+                    <textarea style="resize: none">Это рубрика значит ... </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-category" style="display: none">
+    <div class="form-group">
+        <div class="all-categories">
+            
+        </div>
+        <div class="form-for-new-category clearfix">
+            <div class="title-info">Добавление новой категории</div>
+            <div class="float-left">
+                <div class="input-to-category">
+                    <input type="text" id="title-category" placeholder="Укажите название категории" />
+                    <input type="text" id="code-category" placeholder="Укажите код категории" />
+                </div>
+            </div>
+            <div class="float-right">
+                <button class="add-category-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+            <div class="description-category">
+                    <textarea style="resize: none">Это группа для ... </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-contact" style="display: none">
+    <div class="form-group">
+        <div class="all-contacs">
+            
+        </div>
+        <div class="form-for-new-contact clearfix">
+            <div class="title-info">Добавление нового контакта</div>
+            <div class="float-left">
+                <div class="input-to-type-contact">
+                    <input type="text" id="type-contact" placeholder="Укажите тип контакта" /></div>
+                <div class="input-to-value-contact">
+                    <input type="text" id="value-contact" placeholder="Укажите значение контакта" /></div>
+            </div>
+            <div class="float-right">
+                <button class="add-contact-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*------------------------------------------------------popups ----------------------------------------------------------------------------*@

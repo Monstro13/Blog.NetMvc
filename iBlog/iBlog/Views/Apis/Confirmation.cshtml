@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ConfirmRegister";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="=form-group confirm-code-group">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <p>На указанный электронный адрес было выслано письмо.</p> 
+                <p>Пожалуйста, введите на форме код, который вы найдете, прочитав данное письмо.</p>
+                <p>Данные действия необходимы для активации аккаунта.</p>
+                <p>У вас одна попытка <span style="font-size: 26px;">&#9786;</span></p>
+            </div>            
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("ActivateUser", "Apis", FormMethod.Post)){
+                <input type="text" class="confirm-code" name="confirmCode" placeholder="Код подтверждения"/><input type="submit" value="Подтвердить"/>
+            }
+        </div>
+        <div class="panel-heading">
+            <div class="panel-title">
+                <p>Если вы не получили письмо.</p> 
+                <p>То возможно адрес был указан не корректно.</p>
+                <p>Не исключено, что сейчас проблемы в сети.</p>
+                <p>Повторите попытку позже.</p>
+                <p>Спасибо за понимание!.</p>
+            </div>            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+<div class="content-wrapper news-admin">
+    <div class="form-inline form-group">
+        <div class="form-group">
+            <div class="btn-group">
+                <button id="all-news-admin" class="btn btn-default">Все</button>
+                <button id="unConfirm-news-admin" class="btn btn-default">Не подтвержденные</button>
+                <button id="banned-news-admin" class="btn btn-default">Запрещенные</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="news-container" class="table-container">
+        <table class="table-bordered rc-table" id="news-admin">
+            <thead>
+                <tr>
+                    <th>Имя автора</th>
+                    <th>Дата создания</th>
+                    <th>Рубрика</th>
+                    <th>Заголовок</th>
+                    <th>Рэйтинг новости</th>
+                    <th>Рэйтинг автора</th>
+                    <th>Действие</th>
+                    <th>Действие</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="align-center">
+        <ul id="pager" class="pagination">
+            <li id="pager-prev"><a href="javascript:void(0)">&laquo;</a></li>
+            <li id="pager-curr"><a href="javascript:void(0)">1</a></li>
+            <li id="pager-next"><a href="javascript:void(0)">&raquo;</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<script type="text/template" id="template-news-item-admin">
+    <tr class="table-item" data-id="<%= item.NewsId %>" rel="tooltip" title="<%= item.Status %>" data-placement="right">
+        <td style="width: 10%;" class="item-name">
+            <div class="row item-field-contentcontainer">
+                <div class="col-md-20">
+                    <span class="item-field-content"><a class="extend-info-user" href="javascript:void(0)"><%= item.UserLogin %></a></span>                                
+                </div>
+            </div>
+        </td>
+        <td style="width: 20%;" class="item-date-creation">
+            <div class="row item-field-contentcontainer">
+                <div class="col-md-20">
+                    <span class="item-field-content"><%= item.DateCreation %></span>                                
+                </div>
+            </div>
+        </td>
+        <td><%= item.Rubric %></td>
+        <td class="item-title">
+              <span class="item-field-content"><%= item.PostTitle %></span>
+        </td>
+        <td><%= item.PostRating %></td>
+        <td><%= item.UserRating %></td>
+        <td class="control">
+            <button class="btn btn-primary details-news-admin">Подробнее</button>
+        </td>
+        <td class="control">
+            <button class="btn btn-primary spam-news-admin">Спам</button>
+        </td>
+        <td class="control">
+            <button class="btn btn-primary confirm-news-admin">Подтвердить</button>
+        </td>
+    </tr>
+</script>
+
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/underscore-min.js"></script>
+<script src="~/Scripts/MainPage/ActionAdminNews.js"></script>

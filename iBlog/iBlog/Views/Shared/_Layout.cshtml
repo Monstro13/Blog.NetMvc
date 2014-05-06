@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>Будь в фокусе</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper pos-rel">
+            <div class="float-left">
+                <div class="logo">
+                    <p class="site-title">
+                        <a href="/Home/Index">
+                            <img src="../../Images/logoFocus.png" /></a>
+                    </p>
+                </div>
+            </div>
+            <div class="float-left search-header">
+                <input id="searcher" type="text" placeholder="Поиск..." />
+                <a id="loop-searcher" class="btn btn-primary" href="javascript:void(0)">
+                    <img src="~/Images/search.png" /></a>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginOptional")
+                </section>
+            </div>
+            <div class="unwatched-messages pos-abs">
+                <a href="javascript:void(0)">
+                    <img src="~/Images/OptionPost/message.png" alt="" />
+                </a>
+                <div class="count-messages pos-abs">101</div>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <div id="main-content" class="content-wrapper clearfix">
+            <div id="left-navigation" class="float-left">
+                @Html.Partial("Navigation")
+            </div>
+            <div id="right-body" class="float-right">
+                @RenderBody()
+            </div>
+            <div id="up">
+                <p class="pPageScroll btn btn-primary">Вверх</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year — Царегородцев Вадим</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--[if lt IE 9]><script type="text/javascript" src="~/Scripts/MainPage/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="~/Scripts/MainPage/tagcanvas.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="../../Scripts/MainPage/ActionInMainPage.js"></script>
+    <script src="../../Scripts/MainPage/SkyTags.js"></script>
+    <script src="~/Scripts/MainPage/UserNavigations.js"></script>
+</body>
+</html>
+
+
+@*------------------------------------------------------popups ----------------------------------------------------------------------------*@
+
+<div id="popup-register" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Регистрация</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input class="form-control field" data-hint="Как нам вас называть?" data-length="50" placeholder="Имя" name="FirstName" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input class="form-control field" data-hint="Как нам вас называть?" data-length="50" placeholder="Фамилия" name="SecondName" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input class="form-control field" type="email" data-length="50" placeholder="Электронная почта" name="Email" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input class="form-control field" data-type="Login" data-length="50" placeholder="Логин" name="Login" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup left sex">
+                        <p class="last">Я &ndash; всплывающее окно, появляющееся слева от родительского элемента.</p>
+                    </div>
+                    <input id="sex-field" type="hidden" class="form-control field" data-hint="Sex" data-length="50" name="Sex" value="-1" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="popup-register-password" class="form-control field" type="password" data-hint="Пароль не может быть пустым" data-length="50" placeholder="Пароль" name="Password" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input class="form-control field" type="password" data-type="confirmation" data-main="popup-register-password" data-length="50" placeholder="Повторите пароль" name="confirmPassword" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group pos-rel">
+                    <input type="button" id="register-sex" class="btn" value="Ваш пол" />
+                    <input type="button" id="register-sex-field" class="btn dropdown-toggle" data-toggle="dropdown" value="&#9660;" />
+                    <ul class="dropdown-menu">
+                        <li><a id="woman" class="float-left" href="#">Женщина</a></li>
+                        <li><a id="man" class="float-left" href="#">Мужчина</a></li>
+                    </ul>
+                </div>
+                <button type="button" id="popup-register-go" class="btn btn-primary-custom">Зарегистрироваться</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-activate" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Активация аккаунта</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-email" class="form-control activate-field" type="email" placeholder="Email" name="Email" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-login" class="form-control activate-field" placeholder="Login" name="Login" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="activate-password" class="form-control activate-field" placeholder="Password" name="Password" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="popup-activate-go" class="btn btn-primary-custom">Активировать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-recovery" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Восстановление пароля</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="recovery-email" class="form-control recovery-field" type="email" placeholder="Email" name="Email" />
+                </div>
+                <div class="form-group pos-rel">
+                    <div class="popup right">
+                        <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+                    </div>
+                    <input id="recovery-login" class="form-control recovery-field" placeholder="Login" name="Login" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="popup-recovery-go" class="btn btn-primary-custom">Отправить пароль</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="popup-unfo-user" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Информация о пользователе</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="infouserkey">Имя пользователя: &nbsp;</label><label class="username-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Пол пользователя: &nbsp;</label><label class="usersex-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Рейтинг пользователя: &nbsp;</label><label class="userrating-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Время на сайте: &nbsp;</label><label class="usertimeonsite-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Количество постов: &nbsp;</label><label class="userposts-userforuser infouservalue"></label>
+                </div>
+                <div class="form-group">
+                    <label class="infouserkey">Количество комментариев: &nbsp;</label><label class="userkomments-userforuser infouservalue"></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <input id="iduser-for-add-to-blacklist" type="hidden" value="" />
+                    <button type="button" id="add-to-blacklist" class="btn btn-primary-custom">Добавить в черный список</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-dialogs" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Мои диалоги</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group dialogs">
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-form" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-rubric" style="display: none">
+    <div class="form-group">
+        <div class="all-rubrics">
+            
+        </div>
+        <div class="form-for-new-rubric clearfix">
+            <div class="title-info">Добавление новой рубрики</div>
+            <div class="float-left">
+                <div class="input-to-rubric">
+                    <input type="text" id="title-rubric" placeholder="Укажите название рубрики" />
+                </div>
+            </div>
+            <div class="float-right">
+                <button class="add-rubric-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+            <div class="description-rubric">
+                    <textarea style="resize: none">Это рубрика значит ... </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-category" style="display: none">
+    <div class="form-group">
+        <div class="all-categories">
+            
+        </div>
+        <div class="form-for-new-category clearfix">
+            <div class="title-info">Добавление новой категории</div>
+            <div class="float-left">
+                <div class="input-to-category">
+                    <input type="text" id="title-category" placeholder="Укажите название категории" />
+                    <input type="text" id="code-category" placeholder="Укажите код категории" />
+                </div>
+            </div>
+            <div class="float-right">
+                <button class="add-category-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+            <div class="description-category">
+                    <textarea style="resize: none">Это группа для ... </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-for-contact" style="display: none">
+    <div class="form-group">
+        <div class="all-contacs">
+            
+        </div>
+        <div class="form-for-new-contact clearfix">
+            <div class="title-info">Добавление нового контакта</div>
+            <div class="float-left">
+                <div class="input-to-type-contact">
+                    <input type="text" id="type-contact" placeholder="Укажите тип контакта" /></div>
+                <div class="input-to-value-contact">
+                    <input type="text" id="value-contact" placeholder="Укажите значение контакта" /></div>
+            </div>
+            <div class="float-right">
+                <button class="add-contact-admin">
+                    <img src="~/Images/OptionPost/add.ico" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*------------------------------------------------------popups ----------------------------------------------------------------------------*@

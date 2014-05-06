@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "AddNews";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    @model iBlog.Models.NewNewsViewModal
+}
+
+<div class="content-wrapper column-news">
+    @using (Html.BeginForm("AddNews", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id="form-to-add" }))
+    {
+        <div class="photo-upload">
+            <div class="title title-info">Загрузка файлов</div>
+            <div class="line-to-add-new-photo clearfix">
+                <div class="button-to-add-new-photo float-left">
+                    <input id="add-field-to-file" class="btn-primary btn" type="button" value="Добавить" />
+                </div>
+            </div>
+            <div id="new-photo-path-and-image">
+                <div class="path-image">
+                    <input type="file" name="Files" class="path-to-image" />
+                </div>
+            </div>
+        </div>
+        <div class="set-rubric">
+            <div class="title title-info">Выбор рубрики</div>
+            <div class="clearfix">
+                <div class="btn-group select-rubric float-left">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Выберите рубрику новости
+                              &nbsp;<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu list-rubric">
+                    </ul>
+                </div>
+                <div class="label-text-rubric">
+                    <label class="text-rubric"></label>
+                </div>
+            </div>
+            <input id="RubricId" type="hidden" name="RubricId" value="-1"/>
+        </div>
+        <div class="set-title-post">
+            <div class="title title-info">Заголовок (не более 200 символов)</div>
+            <div class="par-balance">Осталось: <span class="balance"></span></div>
+            <input id="TitlePost" type="text" name="TitlePost" placeholder="Название новости..." />
+        </div>
+        <div class="set-text-post">
+            <div class="title title-info">Текст новости (не более 3000 символов)</div>
+            <div class="par-balance">Осталось: <span class="balance"></span></div>
+            <textarea id="Text" name="Text"></textarea>
+        </div>
+        <div class="set-hash-tags">
+            <div class="title title-info">Укажите хэштеги, относящиеся к новости</div>
+            <input type="text" id="tags-list" class="input tagboxified"  style="display: none;">
+            <div class="title title-info">Вводите новые теги и подтверждайте с помощью <code>Enter</code>, <code>Tab</code> или <code>,</code><p>Удалить тег можно при помощи <code>BackSpace</code></p>
+            </div>
+
+            <div class="list-added-tags"></div>
+        </div>
+        <div class="set-links">
+            <div class="title title-info">Укажите ссылки, относящиеся к формированию новости</div>
+            <input type="text" id="link-list" class="input tagboxified"  style="display: none;">
+            <div class="title title-info">Ввод и редактирование такое же как и с тегами</div>
+
+            <div class="list-added-links"></div>
+        </div>
+        <div class="option-category">
+            <div class="title title-info">Настройки новости</div>
+            <div class="opt-cat"><input type="checkbox" id="ForSelfCategory" name="ForSelfCategory"/> Показывать только для своей категории</div>
+        </div>
+        <div class="send-to-add-news">
+            <a id="send-news" class="btn-primary btn" href="javascript:void(0)">Отправить новость на рассмотрение</a>
+        </div>
+    }
+</div>
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/MainPage/ActionInAddToNews.js"></script>

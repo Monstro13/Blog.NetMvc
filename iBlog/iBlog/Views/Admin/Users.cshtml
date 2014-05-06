@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<div class="users-admin">
+    <div class="form-inline form-group">
+        <div class="form-group">
+            <div class="btn-group">
+                <button id="all-users-admin" class="btn btn-default">Все</button>
+                <button id="unConfirm-users-admin" class="btn btn-default">Не активные</button>
+                <button id="banned-users-admin" class="btn btn-default">Заблокированные</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="users-container" class="table-container">
+        <table class="table-bordered rc-table" id="users-admin">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Категория</th>
+                    <th>Логин</th>
+                    <th>Эл. почта</th>
+                    <th>Дата регистрации</th>
+                    <th>Рейтинг</th>
+                    <th>Кол. постов</th>
+                    <th>Кол. коммент.</th>
+                    <th>Пол</th>
+                    <th>Действие</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="align-center">
+        <ul id="pager" class="pagination">
+            <li id="pager-prev"><a href="javascript:void(0)">&laquo;</a></li>
+            <li id="pager-curr"><a href="javascript:void(0)">1</a></li>
+            <li id="pager-next"><a href="javascript:void(0)">&raquo;</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<script type="text/template" id="template-users-item-admin">
+    <tr class="table-item" data-id="<%= item.UsersId %>" rel="tooltip" title="<%= item.Status %>" data-placement="right">
+        <td class="item-name">
+            <div class="row item-field-contentcontainer">
+                <div class="col-md-20">
+                    <span class="item-field-content"><%= item.Fname %></span>                                
+                </div>
+            </div>
+        </td>
+        <td class="item-name">
+            <div class="row item-field-contentcontainer">
+                <div class="col-md-20">
+                    <span class="item-field-content"><%= item.Sname %></span>                                
+                </div>
+            </div>
+        </td>
+        <td><%= item.Category %></td>
+        <td><%= item.Login %></td>
+        <td><%= item.Email %></td>
+        <td><%= item.DateRegistration %></td>
+        <td><%= item.Rating %></td>
+        <td><%= item.PostsCount %></td>
+        <td><%= item.KommentsCount %></td>
+        <td><%= item.Sex %></td>
+        <td class="control">
+            <% !item.IsAdmin ? print('<button class="btn btn-primary set-admin-user">Дать права</button>') : print('<button class="btn btn-primary get-admin-user">Забрать права</button>') %>
+        </td>
+        <td class="control">
+            <% !item.IsBlocked ? print('<button class="btn btn-primary set-block-user">Заблокировать</button>') : print('<button class="btn btn-primary get-block-user">Разблокировать</button>') %>
+        </td>
+    </tr>
+</script>
+
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/underscore-min.js"></script>
+<script src="~/Scripts/MainPage/ActionAdminUsers.js"></script>
+

@@ -1,0 +1,20 @@
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\Repositories.dll
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\Repositories.pdb
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\obj\Debug\Repositories.dll
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\obj\Debug\Repositories.pdb
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\EntityFramework.dll
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\Model.dll
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\Model.pdb
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\EntityFramework.xml
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\bin\Debug\ru\EntityFramework.resources.dll
+c:\Users\user\documents\visual studio 2012\Projects\iBlog\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\Repositories.dll
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\Repositories.pdb
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\Model.dll
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\Model.pdb
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\obj\Debug\Repositories.dll
+C:\Users\user\YandexDisk\Документы\iBlog\Repositories\obj\Debug\Repositories.pdb

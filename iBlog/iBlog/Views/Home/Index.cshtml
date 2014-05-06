@@ -1,0 +1,60 @@
+﻿@model iBlog.Models.MainViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="news">
+    @foreach (var news in Model.News)
+    {
+        <div class="item-news">
+            @Html.Partial("PartNews", news)
+        </div>
+    }
+</div>
+
+<div id="pager">
+
+    <div class="links">
+        <span class="prev-page btn-primary btn">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "prev-form" }))
+            {
+                <input type="hidden" class="search-pattern" name="searchPattern" value="@Model.SearchPattern"/>
+                
+                var prevPage = Model.CurrentPageNumder - 1;
+                
+                <input type="hidden" name="page" value="@prevPage"/>
+
+                <b>&laquo;</b>
+            }
+        </span>
+        <span class="current-page btn-primary btn">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "curr-form" }))
+            {
+                <input type="hidden" id="current-search-pattern" name="searchPattern" value="@Model.SearchPattern" />
+                <input type="hidden" id="current-page-number" name="page" value="@Model.CurrentPageNumder" />
+                if (Model.News.Count > 0)
+                {
+                    @Model.CurrentPageNumder
+                }
+                else
+                {
+                    @:0
+                }
+            }
+        </span>
+        <span class="next-page btn-primary btn">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "next-form" }))
+            {
+                <input type="hidden" class="search-pattern" name="searchPattern" value="@Model.SearchPattern"/>
+                
+                var nextPage = Model.CurrentPageNumder + 1;
+                
+                <input type="hidden" name="page" value="@nextPage"/>
+                
+                <b>&raquo;</b>
+            }
+        </span>
+    </div>
+</div>

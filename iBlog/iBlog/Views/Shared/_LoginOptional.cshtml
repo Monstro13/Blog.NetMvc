@@ -1,0 +1,93 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    if ((string)Session["Role"] == "Admin")
+    {
+    <div class="form-inline">
+        <div class="line">
+            <div class="list-inline user-hi user-block-name">
+                <span>Привет, @Session["UserName"]!</span>
+            </div>
+            <div class="btn-group">
+                <a id="sh-btn" class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <img class="sh" src="~/Images/shestern.png" />
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="javascript:void(0)">Настройки сайта</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="form-contact" href="#">Контакты сайта</a></li>
+                            <li><a class="form-category" href="#">Категории пользователей</a></li>
+                            <li><a class="form-rubric" href="#">Рубрики новостей</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="privat" href="#">Личный кабинет</a></li>
+                    <li><a class="admin-show-users" href="#">Пользователи</a></li>
+                    <li><a class="admin-show-news" href="#">Новости</a></li>
+                    <div class="divider"></div>
+                    <li><a class="exit" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    }
+    else if ((string)Session["Role"] == "User")
+    {
+    <div class="form-inline">
+        <div class="line">
+            <div class="list-inline user-hi user-block-name">
+                <span>Привет, @Session["UserName"]!</span>
+            </div>
+            <div class="btn-group">
+                <a id="sh-btn" class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <img class="sh" src="~/Images/shestern.png" />
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="privat" href="#">Личный кабинет</a></li>
+                    <div class="divider"></div>
+                    <li><a class="exit" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div class="form-inline">
+        <div class="line">
+            <div class="list-inline user-hi user-block-name">
+                <span>Привет!</span>
+            </div>
+            <div class="btn-group">
+                <a id="sh-btn" class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <img class="sh" src="~/Images/shestern.png" />
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="exit" href="#">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    }
+}
+else
+{
+    <div class="form-inline">
+        <div class="line">
+            <div class="list-inline user-hi user-block-name">
+                <span>Привет, Незнакомец!</span>
+            </div>
+            <div class="btn-group">
+                <a id="sh-btn" class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    <img class="sh" src="~/Images/shestern.png" />
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a id="activate-accaunt-go" href="#">Активировать аккаунт</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

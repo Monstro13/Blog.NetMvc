@@ -1,0 +1,153 @@
+/* autocomplete style */
+.autocomplete {
+    position: absolute;
+    padding-top: 5px;
+    z-index: 1000;
+}
+
+    .autocomplete * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .autocomplete ul:before {
+        position: absolute;
+        top: -5px;
+        left: 10px;
+        content: "";
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #D8D8D8;
+    }
+
+    .autocomplete ul {
+        position: relative;
+        padding: 4px;
+        background: #D8D8D8;
+        color: #000;
+        min-width: 150px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: rgba(0,0,0, .1) 0px 3px 5px;
+        -moz-box-shadow: rgba(0,0,0, .1) 0px 3px 5px;
+        box-shadow: rgba(0,0,0, .1) 0px 3px 5px;
+    }
+
+    .autocomplete li {
+        list-style: none;
+        text-align: left;
+        padding: 4px 50px 4px 10px;
+        cursor: pointer;
+        margin-bottom: 1px;
+        background: #D8D8D8;
+    }
+
+        .autocomplete li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .autocomplete li.selected,
+        .autocomplete li.over {
+            background: #bababa;
+            border-radius: 4px;
+            color: #000;
+        }
+
+
+/* tagbox styles */
+.tagbox, .LinksBox {
+    position: relative;
+    overflow: hidden;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: #fff 0px 1px 0px;
+    -moz-box-shadow: #fff 0px 1px 0px;
+    box-shadow: #fff 0px 1px 0px;
+    box-shadow: 0 0 2px #000;
+}
+
+    .tagbox *, .LinksBox * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tagbox.focus, .LinksBox.focus {
+        outline: 0;
+    }
+
+    .tagbox ul, .LinksBox ul {
+        overflow: hidden;
+        padding: 10px 10px 6px 10px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -webkit-box-shadow: rgba(0,0,0,.07) 0px 2px 4px inset;
+        -moz-box-shadow: rgba(0,0,0,.07) 0px 2px 4px inset;
+        box-shadow: rgba(0,0,0,.07) 0px 2px 4px inset;
+    }
+
+    .tagbox li, .LinksBox li {
+        position: relative;
+        list-style: none;
+        float: left;
+        cursor: pointer;
+        margin: 0 4px 4px 0;
+    }
+
+        .tagbox li.new input, .LinksBox li.new input {
+            font-family: Arial, sans-serif;
+            border: none;
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            background: none;
+        }
+
+            .tagbox li.new input:focus, .LinksBox li.new input:focus {
+                outline: none;
+            }
+
+        .tagbox li .tag, .LinksBox li .tag {
+            position: relative;
+            display: block;
+            background: #d3dce0;
+            color: #000;
+            border-radius: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size-adjust: 100%;
+            font-size: 12px;
+            padding: 0 30px 0 12px;
+            vertical-align: middle;
+        }
+
+        .tagbox li .delete, .LinksBox li .delete {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            right: 7px;
+            top: 4px;
+            color: #000;
+            z-index: 100;
+            cursor: pointer;
+            color: #C0C0C0;
+            background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAMAAACeL25MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////QkJCfEGH6wAAABRJREFUeNpiYGRgACEgBhMgBBBgAABkAAl7vFkJAAAAAElFTkSuQmCC) no-repeat center center;
+            width: 12px;
+            text-indent: -6000px;
+            font-size: 11px;
+            line-height: 12px;
+            height: 12px;
+            text-align: center;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+    .tagbox .selected .tag, .LinksBox .selected .tag {
+        background: rgb(246, 174, 174);
+    }

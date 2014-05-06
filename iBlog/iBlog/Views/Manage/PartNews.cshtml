@@ -1,0 +1,60 @@
+﻿@model Repositories.DTO.PostInfo
+
+<div class="body-news">
+    <span class="hoch-line clearfix">
+        <span class="date-part float-left">@Model.DateCreation</span>
+        <span class="tags-part float-right">
+            @foreach (var tag in Model.HashTags)
+            {
+                <span class="alone-tag"><a class="tag-link" href="javascript:void(0)">#@tag.Title</a></span>
+            }
+        </span>
+    </span>
+    <div class="main">
+        <div class="main-title-wrapper">
+            <div class="main-title clearfix">
+                <div class="value-title float-left">
+                    <h2>@Model.Title</h2>
+                </div>
+                <div class="main-rating float-right">
+                    @if (User.Identity.IsAuthenticated && (string)Session["Role"] != "Anon")
+                    {
+                        <span class="change-rating">
+                            <input type="hidden" class="post-id" value="@Model.PostId"/>
+                            <span class="up-rating">
+                                <a class="btn"><img src="~/Images/Rating/rating_y_up.png" /></a></span>
+                            <label class="label-rating">@Model.Rating</label>
+                            <span class="down-rating">
+                                <a class="btn"><img src="~/Images/Rating/rating_t_down.png" /></a></span>
+                        </span>
+                    }
+                    else
+                    {
+                        <label class="label-rating">@Model.Rating</label>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+        @if (Model.Files.Any(x => x.Category == "Image"))
+        {
+            {
+                var fs = Model.Files.Where(x => x.Category == "Image").ToList();
+                var first = fs[0].Path;
+
+            <div class="main-photo">
+                <img src="@first" alt="Photo"/>
+            </div>
+            }
+        }
+        <div class="main-text">
+            @Model.Message
+        </div>
+        <div class="main-footer-wrapper">
+            <div class="main-footer clearfix">
+                <div class="details float-left">@Html.ActionLink("Подробнее...", "News", "Home", new { newsId = Model.PostId }, null)</div>
+                <div class="count-kommentar float-right">Комментариев: &nbsp; @Model.Kommentars.Count</div>
+            </div>
+        </div>
+    </div>
+</div>

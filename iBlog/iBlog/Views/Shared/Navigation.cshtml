@@ -1,0 +1,51 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="form-group">
+        <input id="add-to-news" class="btn btn-primary button-auth" type="button" value="Добавить новость" />
+    </div>
+}
+else
+{
+    <div class="panel-body loginca">
+        <div class="form-group">
+            <div class="popup right logpass">
+                <p class="last">А я &ndash; всплывающее окно, появляющееся справа.</p>
+            </div>
+            <input id="loginput" class="form-control text-login" type="text" data-length="50" placeholder="Введите логин..." name="Login" />
+        </div>
+        <div class="form-group">
+            <input id="passinput" class="form-control text-login" type="password" data-hint="Введите пароль" data-length="50" placeholder="Введите пароль..." name="Password" />
+        </div>
+        <div class="form-group">
+            <input id="Btn-sign-in" class="btn btn-primary" type="button" value="Войти" />
+        </div>
+        <div class="form-group">
+            <input id="Btn-register" class="btn btn-primary" type="button" value="Зарегистрироваться" />
+        </div>
+        <div class="form-group">
+            <input id="login-rememberme" type="checkbox" />
+            Запомнить меня
+        </div>
+        <div class="form-group">
+            <a id="go-recovery" href="javascript:void(0)">Забыли пароль?</a>
+        </div>
+    </div>
+}
+
+<div class="panel-body tags-block sky-tags">
+    <canvas width="240" height="200" id="myCanvas">
+        <p>Ваш браузер не поддерживает наше облако</p>
+    </canvas>
+    <div id="tags">
+        <ul>
+        </ul>
+    </div>
+</div>
+
+<div id="about-us" class="panel-body">
+    <div class="title-about">
+        <label>Контакты</label>
+    </div>
+    <div id="contacts" class="form-group">
+    </div>
+</div>
