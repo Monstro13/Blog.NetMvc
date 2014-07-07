@@ -33,7 +33,7 @@ namespace Model.Helpers
 
             string hashValue = Convert.ToBase64String(secondHashBytes);
 
-            return hashValue;
+            return hash.ComputeHash(Encoding.UTF8.GetBytes(hashValue)).ToString();
         }
 
         /// <summary>

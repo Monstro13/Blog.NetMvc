@@ -25,22 +25,25 @@ namespace Model.Configuration
                     new Contact() {ContactId = 4, GroupId = 1, Type = "Email", Value = "myEmail"}, 
                 };
 
-            var group = new GroupContact() { GroupContactId = 1, Title = "Main"};
+            var group = new GroupContact() { GroupContactId = 1, Title = "Main" };
 
             var categories = new UserCategory[]
                 {
-                    new UserCategory {UserCategoryId = 1,Title = "general", Description = "general group", Code = "1"}, 
-                    new UserCategory {UserCategoryId = 2,Title = "a-91", Description = "general group", Code = "1"},
-                    new UserCategory {UserCategoryId = 3,Title = "a-101", Description = "general group", Code = "1"},
-                    new UserCategory {UserCategoryId = 4,Title = "m-61", Description = "general group", Code = "1"},
-                    new UserCategory {UserCategoryId = 5,Title = "a-100", Description = "general group", Code = "1"},
-                    new UserCategory {UserCategoryId = 6,Title = "b1", Description = "general group", Code = "1"},
+                    new UserCategory {UserCategoryId = 1,Title = "Общая группа", Description = "Группа общего пользования", Code = "1"}
                 };
 
             var users = new User[]
                 {
-                    new User{UserId = 1, UserCategoryId = 1, Sex = true, SecondName = "Bond", Password = "007".ComputeHash(), Login = "Agent", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "James", Email = "jamesBond@mail.ru", DateRegistration = DateTime.Now }, 
-                    new User{UserId = 2, UserCategoryId = 1, Sex = true, SecondName = "At", Password = "100".ComputeHash(), Login = "Admin", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = true, IsActivate = true, FirstName = "Karl", Email = "KarlKorral@mail.ru", DateRegistration = DateTime.Now }
+                    new User{UserId = 1, UserCategoryId = 1, Sex = true, SecondName = "Bond", Password = "007".ComputeHash(), Login = "Agent", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = true, IsActivate = true, FirstName = "James", Email = "jamesBond@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 2, UserCategoryId = 1, Sex = true, SecondName = "User1", Password = "100".ComputeHash(), Login = "User1", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 3, UserCategoryId = 1, Sex = true, SecondName = "User2", Password = "100".ComputeHash(), Login = "User2", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 4, UserCategoryId = 1, Sex = true, SecondName = "User3", Password = "100".ComputeHash(), Login = "User3", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 5, UserCategoryId = 1, Sex = true, SecondName = "User4", Password = "100".ComputeHash(), Login = "User4", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 6, UserCategoryId = 1, Sex = true, SecondName = "User5", Password = "100".ComputeHash(), Login = "User5", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 7, UserCategoryId = 1, Sex = true, SecondName = "User6", Password = "100".ComputeHash(), Login = "User6", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 8, UserCategoryId = 1, Sex = true, SecondName = "User7", Password = "100".ComputeHash(), Login = "User7", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 9, UserCategoryId = 1, Sex = true, SecondName = "User8", Password = "100".ComputeHash(), Login = "User8", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }, 
+                    new User{UserId = 10, UserCategoryId = 1, Sex = true, SecondName = "User9", Password = "100".ComputeHash(), Login = "User9", Karma = 0, IsDeleted = false, IsBlocked = false, IsAdmin = false, IsActivate = true, FirstName = "Test", Email = "testotest@mail.ru", DateRegistration = DateTime.Now }
                 };
 
             var tags = new HashTag[]
@@ -82,28 +85,9 @@ namespace Model.Configuration
 
             var rubrics = new Rubric[]
                 {
-                    new Rubric{RubricId = 1, Title = "Kino", Description = "About Kino with Kino"},
-                    new Rubric{RubricId = 2, Title = "More", Description = "About More with More"},
+                    new Rubric{RubricId = 1, Title = "Movie", Description = "About Kino with Kino"},
+                    new Rubric{RubricId = 2, Title = "See", Description = "About More with More"},
                     new Rubric{RubricId = 3, Title = "UFO", Description = "About UFO with UFO"}, 
-                };
-
-            var testKommentars = new Kommentar[]
-                {
-                    new Kommentar{KommentarId = 1, UserId = 1, Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                     new Kommentar{KommentarId = 2, UserId = 1,Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                      new Kommentar{KommentarId = 3, UserId = 1,Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                       new Kommentar{KommentarId = 4, UserId = 1,Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                        new Kommentar{KommentarId = 5, UserId = 1,Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                         new Kommentar{KommentarId = 6, UserId = 1,Rating = 0, Message = text, IsSpam = false, IsDeleted = false, IsConfirm = true, DateCreation = DateTime.Now}, 
-                };
-
-            var testHashTags = new HashTag[]
-                {
-                    new HashTag{HashTagId = 1, Title = "Кот", Weigth = 0},
-                    new HashTag{HashTagId = 2, Title = "котики", Weigth = 0},
-                    new HashTag{HashTagId = 3, Title = "вертолет", Weigth = 0},
-                    new HashTag{HashTagId = 4, Title = "украина", Weigth = 0},
-                    new HashTag{HashTagId = 5, Title = "Революция", Weigth = 0},
                 };
 
             var testLinks = new Link[]
@@ -124,33 +108,6 @@ namespace Model.Configuration
                     new FileType{FileTypeId = 2, TypeId = 1, Format = "jpg"},
                 };
 
-            var files = new AttachFile[]
-                {
-                    new AttachFile{AttachFileId = 1, Title = "test title", FilePath = "/Images/Posts/nemo.jpg", FileTypeId = 2},
-                    new AttachFile{AttachFileId = 2, Title = "test title", FilePath = "/Images/logoFocus.png", FileTypeId = 1},
-                    new AttachFile{AttachFileId = 3, Title = "test title", FilePath = "/Images/logoFocus.png", FileTypeId = 1},
-                    new AttachFile{AttachFileId = 4, Title = "test title", FilePath = "/Images/logoFocus.png", FileTypeId = 1}
-                };
-
-            var news = new Post[]
-                {
-                    new Post{PostId = 1, UserId = 1, UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 2, UserId = 2,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 3, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 4, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 5, UserId = 1, UserCategoryId = 1,DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 6, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 7, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 8, UserId = 1, UserCategoryId = 1,DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 9, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 10, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 11, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 12, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 13, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 14, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files},
-                    new Post{PostId = 15, UserId = 1,UserCategoryId = 1, DateCreation = DateTime.Now, IsConfirm = true, IsDeleted = false, IsSpam = false, Title = "Test Post", Message = text, Rating = 0, RubricId = 1, HashTags = testHashTags, Links = testLinks, Files = files}
-                };
-
             context.Contacts.AddOrUpdate(contacts);
             context.GroupContacts.AddOrUpdate(group);
             context.UserCategories.AddOrUpdate(categories);
@@ -159,9 +116,7 @@ namespace Model.Configuration
             context.Rubrics.AddOrUpdate(rubrics);
             context.Links.AddOrUpdate(testLinks);
             context.FileTypes.AddOrUpdate(typesFiles);
-            context.AttachFiles.AddOrUpdate(files);
             context.FileCategories.AddOrUpdate(fileCAtegories);
-            context.Posts.AddOrUpdate(news);
         }
     }
 }

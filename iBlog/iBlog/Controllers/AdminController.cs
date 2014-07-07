@@ -444,7 +444,7 @@ namespace iBlog.Controllers
         {
             if (ServiceLocator.Current.GetInstance<IUserService>().GetUserRole(SessionManager.GetUserId()) == "Admin")
             {
-                return Json(usersId == SessionManager.GetUserId() ? null : ServiceLocator.Current.GetInstance<IUserService>().DeleteAdminRules(usersId).ToString());
+                return Json(usersId == SessionManager.GetUserId() || usersId == 1 ? null : ServiceLocator.Current.GetInstance<IUserService>().DeleteAdminRules(usersId).ToString());
             }
             else
             {
